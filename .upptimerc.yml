@@ -4,9 +4,17 @@ owner: InBrief-Inc # The organization this repository actually lives in. It read
 # redirect - which stops the day anyone creates a repository at that old path.
 repo: status # The name of this repository
 
-# Schedule uptime checks every hour instead of default 5 minutes
+# This has to match `.github/workflows/uptime.yml`, which already asks for every
+# five minutes. It did not: this said hourly while the workflow said `*/5`, and
+# `Update Template CI` regenerates those workflows from this file - so the
+# faster schedule was one template rewrite away from being silently reverted.
+#
+# It does not make the checks any faster. GitHub's scheduler is best-effort and
+# drops most of these: across the last twenty runs the actual gap ranged from 99
+# to 306 minutes, median 169, against the five requested. Treat this page as the
+# public record of uptime, not as the thing that notices an outage.
 schedule:
-  cron: "0 * * * *"
+  cron: "*/5 * * * *"
 
 sites:
   - name: InBrief Web

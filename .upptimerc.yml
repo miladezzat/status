@@ -1,5 +1,7 @@
 # Change these first
-owner: miladezzat # Your GitHub organization or username, where this repository lives
+owner: InBrief-Inc # The organization this repository actually lives in. It read
+# `miladezzat` until now, and only worked because GitHub keeps serving a rename
+# redirect - which stops the day anyone creates a repository at that old path.
 repo: status # The name of this repository
 
 # Schedule uptime checks every hour instead of default 5 minutes
@@ -28,7 +30,11 @@ status-website:
   # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
   cname: status.inbrief.sh
   # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/miladezzat/status/master/assets/upptime-icon.svg
+  # The InBrief mark, served from this repository rather than from inbrief.sh.
+  # A logo loaded from the thing being monitored is a logo that breaks during
+  # the outage this page exists to report, which is the same reason the page
+  # itself is on GitHub Pages and not on the server.
+  logoUrl: https://raw.githubusercontent.com/InBrief-Inc/status/master/assets/inbrief-mark.svg
   name: InBrief Status
   introTitle: "**InBrief Status** makes uptime data for InBrief services available in real time."
   introMessage: Monitor the live health of the InBrief web app and API, and let issues surface incidents so the team can respond fast.
@@ -36,7 +42,7 @@ status-website:
     - title: Status
       href: /
     - title: GitHub
-      href: https://github.com/miladezzat/status
+      href: https://github.com/InBrief-Inc/status
 
 # Upptime also supports notifications, assigning issues, and more
 # See https://upptime.js.org/docs/configuration

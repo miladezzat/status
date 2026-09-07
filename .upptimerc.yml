@@ -21,8 +21,15 @@ sites:
     url: https://inbrief.sh
   - name: InBrief API
     url: https://api.inbrief.sh/api/health
-  - name: InBrief App
-    url: https://app.inbrief.sh
+  # The tenant rewrite: a status page served the way a customer's is. The
+  # product site can answer perfectly while every tenant page 500s, and for a
+  # company selling status pages that is the outage that matters.
+  #
+  # This replaced https://app.inbrief.sh, which is a different product on
+  # Vercel - a coming-soon page that stays green whatever happens here, so it
+  # read as coverage while covering nothing.
+  - name: InBrief status pages
+    url: https://demo.inbrief.sh
 
 notifications:
   - type: email
